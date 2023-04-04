@@ -1,0 +1,45 @@
+@charset "utf-8";
+*{margin: 0; padding: 0;}
+ul{list-style: none;}
+a{text-decoration: none; color: #000;}
+
+.profile-wrap{max-width: 1200px; margin: 0 auto; padding-bottom: 100px;}
+.profile-content{background-color: #fff; border-radius: 7px; border: 1px solid #ccc; padding: 50px 30px 10px; box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.2); display: flex; flex-wrap: wrap; align-items: center; overflow: hidden;}
+
+.profile-pic{flex-basis: 35%; text-align: center;}
+.profile-pic p{margin-bottom: 0.5em; letter-spacing: -1px;}
+
+
+
+.profile-desc{flex-basis: 65%;}
+.profile-desc > div{margin-bottom: 1.5em;}
+.profile-desc > div h3{margin-bottom: 1em;}
+.profile-desc > div p{letter-spacing: -1px;}
+.profile-desc > div p span{font-weight: bold;}
+
+.profile-desc .proflie-skill .progress-area{display: flex; justify-content: space-between; flex-wrap: wrap;}
+.profile-desc .proflie-skill .progress-area .progress{flex-basis: 48%; margin-bottom: 1em;}
+.profile-desc .proflie-skill .progress-area .progress p{margin-bottom: 0.5em;}
+.profile-desc .proflie-skill .progress-area .progressbar-text{left: 94% !important; top: 39% !important;}
+/* 우선순위로 적용됨 ! */
+
+.footer{position: relative; width: 100%; background-color: #fff; padding: 25px 0; text-align: center; color: #9f9f9f; letter-spacing: -1px;}
+
+
+@media screen and (min-width: 641px) and (max-width: 1200px){
+    .profile-desc{flex-wrap: wrap; margin-top: 30px; column-gap: 20px;}
+    .profile-desc > div{flex-basis: 48%; text-align: center;}
+    .profile-desc > div h3{margin-bottom: 1em;}
+    .profile-pic .profile-img,
+    .profile-pic .profile-text{flex-basis: 50%;}
+}
+@media screen and (max-width: 1000px){
+    .profile-pic,
+    .profile-desc{flex-basis: 100%; display: flex;}
+}
+@media screen and (max-width: 640px){
+    .profile-pic,
+    .profile-desc{display: block;}
+    .profile-desc{margin-top: 30px;}
+    
+}

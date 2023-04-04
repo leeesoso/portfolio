@@ -1,0 +1,148 @@
+@charset "utf-8";
+*{margin: 0; padding: 0;}
+ul{list-style: none;}
+a{text-decoration: none; color: #000;}
+
+.content{width: 100%; padding: 0 2%; box-sizing: border-box;}
+.content .work_wrap{max-width: 1200px; margin: 0 auto; padding-bottom: 100px;}
+
+.content .work-content{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 50px 30px 100px;
+    box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.2);
+    display: flex;
+    border: 1px solid #ddd;
+    margin-bottom: 100px;
+    /* 한칸씩 띄엄띄엄 구간나눠줌*/
+}
+.content .work-content .work-img{
+    flex-basis: 48%;
+    position: relative;
+}
+.content .work-content .work-img img{
+    width: 100%;
+}
+
+.content .work-content .work-img .pc{width: 85%; position: absolute; left: 50%; transform: translateX(-50%); bottom: 0; overflow: hidden;}
+.content .work-content .work-img .pc::after{
+    content:"";
+    position: absolute; width: 93%; height: 63%;
+    background-image: url("../images/preview.jpg");
+    background-size: cover;
+    left: 15px; top: 22px;
+    background-position: center top;
+}
+
+.content .work-content .work-img .tablet{width: 35%; position: absolute; right: 0; bottom: 0; overflow: hidden;}
+.content .work-content .work-img .tablet::after{
+    content:"";
+    position: absolute; width: 86%; height: 81%;
+    background-image: url("../images/preview.jpg");
+    background-size: cover;
+    left: 15px; top: 22px;
+    background-position: center top;
+}
+
+.content .work-content .work-img .mobile{width: 23%; position: absolute; left: 0; bottom: 0; overflow: hidden;}
+.content .work-content .work-img .mobile::after{
+    content:"";
+    position: absolute; width: 90%; height: 93%;
+    background-image: url("../images/preview.jpg");
+    background-size: cover;
+    left: 7px; top: 8px;
+    background-position: center top;
+    border-radius: 5px;
+}
+
+.content .work-content .work-img > div:hover::after{
+    transition: 5s;
+    background-position: center bottom;
+    /* 호버하면 이미지 올라감 */
+}
+
+.content .work-content .work-desc{flex-basis: 55%; padding-top: 20px;}
+.content .work-content .work-desc p{font-size: 16px; padding: 10px 0 10px 50px;}
+.content .work-content .work-desc h3{font-size: 32px; font-weight: bold; padding: 10px 0 10px 50px;}
+.content .work-content .work-desc p:nth-child(2){font-size: 1.2em;}
+.content .work-content .work-desc span{width: 20px; height: 20px;
+    display: inline-block; vertical-align: middle;
+    /* └vertical-align: middle; 은 display: inline-block;일때만 사용가능 정렬맞추기 */
+}
+.content .work-content .work-desc span:nth-child(1){background-color: orange;}
+.content .work-content .work-desc span:nth-child(2){background-color: skyblue; margin: 0 10px;}
+.content .work-content .work-desc span:nth-child(3){background-color: coral;}
+
+.content .work-content .work-desc .btn-wrap ul{
+    display: flex; justify-content: center; margin-top: 25px;
+}
+.content .work-content .work-desc .btn-wrap ul li{
+    padding: 2% 6%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer; transition: 0.5s;
+    text-transform: uppercase;
+    /* ttu */
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+.content .work-content .work-desc .btn-wrap ul li:nth-child(2){
+    margin: 0 4%;
+}
+.content .work-content .work-desc .btn-wrap ul li:hover{
+    box-shadow: -75px 0 0 0 rgb(205, 205, 205) inset, 75px 0 0 0 rgb(205, 205, 205) inset;
+    /* 버튼효과 */
+}
+.content .work-content .work-desc .btn-wrap ul li:hover a{
+    color: #fff; transition: 0.3s 0.1s;
+
+}
+.content .work-content .work-desc .btn-wrap ul li a{
+    transition: 0.3s 0.1s;
+    /* └딜레이를 살짝주고 바뀌는거라 자연스러운 연출 */
+}
+
+.content .work-content:last-child{margin-bottom: 0;}
+.content .work-content:nth-child(2n) .work-img{order: 2;}
+/* └2배수로 적용된다. 이미지와 글 위치를 바꾸도록 설정.
+order는 순서를 정할수있음. flex가 있어야 쓸수있음. 오더가 없는 컨텐츠가 제일 위로 올라옴(우선순위). 그러므로 다적어주는게 확실해질듯 */
+.content .work-content:nth-child(2n) .work-desc{order: 1;}
+
+
+.footer{position: relative; width: 100%; background-color: #fff; padding: 25px 0; text-align: center; color: #9f9f9f; letter-spacing: -1px;}
+
+
+@media screen and (max-width: 1200px){
+    .work-content{flex-wrap: wrap;}
+    .content .work-content:nth-child(2n) .work-img{order: 1;}
+    .content .work-content:nth-child(2n) .work-desc{order: 2;}
+    /* 원위치로 사용 */
+    .content .work-content .work-img{flex-basis: 100%; height: 500px;}
+    .content .work-content .work-img .pc{width: 550px;}
+    .content .work-content .work-img .tablet{right: 0; width: 184px;}
+    .content .work-content .work-img .mobile{left: 0; width: 126px;}
+    .content .work-content .work-desc{flex-basis: 100%;}
+}
+/* └타블렛과 폰을 같이쓰겠다 */
+
+@media screen and (min-width: 641px) and (max-width: 1200px){
+    .content .work-content{margin-bottom: 50px;}
+}
+
+@media screen and (max-width: 640px){
+    .content .work-content .work-img{height: 70.3125vw;}
+    .content .work-content .work-img .pc{width: 100%;}
+    .content .work-content .work-img .tablet{width: 35%;}
+    .content .work-content .work-img .mobile{width: 20%;}
+
+    .content .work-content .work-img .pc::after{width: 92.5%; left: 3.8%; top: 4.7%;}
+    .content .work-content .work-img .tablet::after{left: 8%; top: 8%;}
+    .content .work-content .work-img .mobile::after{height: 92.5%; left: 5.5%; top: 2.5%;}
+    .content .work-content .work-desc h3{padding-left: 0; font-size: 24px;}
+    .content .work-content .work-desc p{padding-left: 0; font-size: 16px;}
+    .content .work-content .work-desc .btn-wrap ul li{flex-basis: 30%; padding: 2% 0; text-align: center;}
+    .content .work-content .work-desc .btn-wrap ul li a{
+        font-size: 14px;
+    }
+}
